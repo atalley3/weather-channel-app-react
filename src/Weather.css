@@ -17,6 +17,7 @@
   height: auto;
   font-size: 24px;
   margin: 10px;
+  padding: 6px;
 }
 .Weather input {
   background-color: rgb(5, 157, 251);

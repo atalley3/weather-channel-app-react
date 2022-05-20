@@ -92,6 +92,7 @@ function Weather(props) {
                     type="Search"
                     placeholder="Enter a city name..."
                     onChange={updateCity}
+                    autoFocus={false}
                   />
                   <button>
                     <i class="fa-solid fa-magnifying-glass"></i>
