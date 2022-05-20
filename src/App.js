@@ -1,4 +1,5 @@
 import "./App.css";
+import Weather from "./Weather";
 import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 

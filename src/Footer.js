@@ -15,8 +15,9 @@ function Footer() {
         href="https://https://www.linkedin.com/in/ashley-talley-41271950/"
         target="_blank"
         rel="noreferrer"
-      ></a>
-      Ashley Talley
+      >
+        Ashley Talley
+      </a>
     </footer>
   );
 }

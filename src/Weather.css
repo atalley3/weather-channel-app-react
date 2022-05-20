@@ -1,0 +1,59 @@
+.Weather header {
+  background-color: rgb(43, 144, 207);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.Weather .search-bar {
+  margin: 5px 10%;
+}
+.Weather form {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(5, 157, 251);
+  border-radius: 20px;
+  color: white;
+  height: auto;
+  font-size: 24px;
+  margin: 10px;
+}
+.Weather input {
+  background-color: rgb(5, 157, 251);
+  color: white;
+  border: none;
+}
+.Weather form button {
+  color: white;
+  background-color: rgb(5, 157, 251);
+  border: none;
+}
+.Weather .location-btn {
+  border-radius: 20px;
+  color: white;
+  background-color: rgb(19, 128, 196);
+  margin: 10px;
+  white-space: nowrap;
+}
+.Weather .units-btn {
+  margin: 10px 0;
+  white-space: nowrap;
+}
+.Weather .metric-btn {
+  background-color: rgb(19, 128, 196);
+  color: white;
+  border-radius: 20px 0 0 20px;
+  padding-right: 0;
+  margin-right: 0;
+  width: 75px;
+  border-right: 1px black solid;
+}
+.Weather .imperial-btn {
+  background-color: rgb(19, 128, 196);
+  color: white;
+  border-radius: 0 20px 20px 0;
+  padding-left: 0;
+  margin-left: 0;
+  width: 75px;
+  border-left: 1px black solid;
+}
