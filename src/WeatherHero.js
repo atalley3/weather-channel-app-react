@@ -1,4 +1,5 @@
 import React from "react";
+import "./WeatherHero.css";
 
 export default function WeatherHero() {
   return (
