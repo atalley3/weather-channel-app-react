@@ -1,0 +1,12 @@
+section.WeatherHero {
+  max-width: 650 px;
+  display: block;
+  margin: 30px auto;
+  border-radius: 6px;
+  background-color: lightblue;
+}
+.WeatherHero header {
+  background-color: navy;
+  color: white;
+  text-align: start;
+}
