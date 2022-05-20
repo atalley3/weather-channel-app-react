@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import WeatherHero from "./WeatherHero";
 import TodaysForecast from "./TodaysForecast";
 import WeatherDetails from "./WeatherDetails";
+import axios from "axios";
 
 function Weather(props) {
   return (
