@@ -94,7 +94,7 @@ function Weather(props) {
                     onChange={updateCity}
                     autoFocus={false}
                   />
-                  <button>
+                  <button type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </form>
