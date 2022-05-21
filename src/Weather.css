@@ -58,3 +58,6 @@
   width: 75px;
   border-left: 1px black solid;
 }
+.Weather main {
+  position: relative;
+}

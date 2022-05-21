@@ -4,9 +4,35 @@
   margin: 30px auto;
   border-radius: 6px;
   background-color: lightblue;
+  color: white;
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
 }
+
 .WeatherHero header {
   background-color: navy;
   color: white;
   text-align: start;
+  border-radius: 6px 6px 0 0;
+}
+.WeatherHero h1 {
+  font-size: 28px;
+  text-align: start;
+}
+.WeatherHero li.currentTemp {
+  font-size: 48px;
+}
+.WeatherHero ul,
+.WeatherHero li {
+  text-align: start;
+}
+
+.WeatherHero .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,29 +1,43 @@
 import React from "react";
 import "./WeatherHero.css";
 
-export default function WeatherHero() {
+export default function WeatherHero(props) {
+  let city = props.location;
+  let unit;
+  if (props.unit === "imperial") {
+    unit = "F";
+  } else {
+    unit = "C";
+  }
+  let weatherArr = props.info;
   return (
     <section className="WeatherHero">
       <header>
-        <h1>Asheville as of 1:00 pm on 5/20/22</h1>
+        <h1>{city} as of 1:00 pm on 5/20/22</h1>
       </header>
-      <main className="container">
+      <main className="container ps-1">
         <div className="row">
           <div className="col-md-8">
             <ul>
-              <li>90 degrees F</li>
-              <li>Sunny and Hot AF</li>
+              <li className="currentTemp">
+                {weatherArr.temp}º {unit}
+              </li>
+              <li>{weatherArr.description}</li>
               <div className="d-flex">
-                <li>
-                  <span>Day Temp</span> 95
+                <li className="pe-2">
+                  <span className="fw-bold">Day Temp</span> {weatherArr.dayTemp}
+                  º
                 </li>
                 <li>
-                  <span>NightTemp</span> 65
+                  <span className="fw-bold">NightTemp</span>
+                  {weatherArr.nightTemp}º
                 </li>
               </div>
             </ul>
           </div>
-          <div className="col-md-4">icon</div>
+          <div className="col-md-4 position-relative">
+            <div className="icon">icon</div>
+          </div>
         </div>
       </main>
     </section>
