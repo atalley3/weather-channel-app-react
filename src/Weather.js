@@ -5,8 +5,8 @@ import TodaysForecast from "./TodaysForecast";
 import WeatherDetails from "./WeatherDetails";
 import "./Weather.css";
 
-function Weather(props) {
-  const [city, setCity] = useState(props.defaultCity);
+function Weather() {
+  const [city, setCity] = useState("Asheville");
   const [location, setLocation] = useState({});
   const [unit, setUnit] = useState("imperial");
   const [currentWeather, setCurrentWeather] = useState({});
@@ -17,6 +17,7 @@ function Weather(props) {
 
   function handleGeoPostionrepsonse(response) {
     setLocation({
+      ...location,
       lon: response.data[0].lon,
       lat: response.data[0].lat,
       cityName: response.data[0].name,
