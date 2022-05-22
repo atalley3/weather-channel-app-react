@@ -16,9 +16,14 @@ export default function Time(props) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  if (hours === 0) {
+    hours = 12;
+    amOrPm = "AM";
+  }
   if (hours < 10) {
     hours = `0${hours}`;
   }
+
   return (
     <>
       {hours}:{minutes} {amOrPm}
