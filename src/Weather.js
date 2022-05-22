@@ -39,7 +39,7 @@ function Weather() {
     setCurrentWeather({
       dt: response.data.current.dt,
       temp: response.data.current.temp,
-      description: response.data.current.description,
+      description: response.data.current.weather[0].description,
       dayTemp: response.data.daily[0].temp.day,
       nightTemp: response.data.daily[0].temp.night,
       icon: response.data.current.weather[0].icon,
@@ -52,10 +52,11 @@ function Weather() {
       sunsetDT: response.data.current.sunset,
       wind: response.data.current.wind_speed,
       dewPoint: response.data.current.dew_point,
-      uvIndex: response.data.daily[0].uvi,
+      uvIndex: response.data.current.uvi,
       moonPhase: response.data.daily[0].moon_phase,
       precipitation: response.data.daily[0].pop,
     });
+    setIsLoaded(true);
   }
   function setImperial(event) {
     event.preventDefault();
@@ -67,12 +68,14 @@ function Weather() {
   }
   function handleLocationSearch(response) {
     setLocation({
+      ...location,
       lon: response.data[0].lon,
       lat: response.data[0].lat,
       cityName: response.data[0].name,
     });
     axios.get(oneCallUrl).then(handleCurrentWeatherResponse);
   }
+
   function handleSubmit(event) {
     event.preventDefault();
     axios.get(geoURl).then(handleLocationSearch);
@@ -128,11 +131,9 @@ function Weather() {
         </main>
       </div>
     );
-  } else {
-    axios
-      .get(geoURl)
-      .then(handleLocationSearch)
-      .then(() => setIsLoaded(true));
+  }
+  if (!isloaded) {
+    axios.get(geoURl).then(handleLocationSearch);
     return <div className="Weather">Loading...</div>;
   }
 }

@@ -3,13 +3,16 @@ import "./WeatherHero.css";
 
 export default function WeatherHero(props) {
   let city = props.location;
-  let unit;
-  if (props.unit === "imperial") {
-    unit = "F";
-  } else {
-    unit = "C";
+  let unit = props.unit;
+  let weatherObj = props.info;
+  let temps = [weatherObj.temp, weatherObj.dayTemp, weatherObj.nightTemp];
+  if (unit === "metric") {
+    temps = temps.map((temp) => Math.round((temp - 32) * (5 / 9)));
   }
-  let weatherArr = props.info;
+  if (unit === "imperial") {
+    temps = temps.map((temp) => Math.round(temp));
+  }
+
   return (
     <section className="WeatherHero">
       <header>
@@ -20,17 +23,15 @@ export default function WeatherHero(props) {
           <div className="col-md-8">
             <ul>
               <li className="currentTemp">
-                {weatherArr.temp}º {unit}
+                {temps[0]}º {unit === "imperial" ? "F" : "C"}
               </li>
-              <li>{weatherArr.description}</li>
+              <li className="text-capitalize">{weatherObj.description}</li>
               <div className="d-flex">
                 <li className="pe-2">
-                  <span className="fw-bold">Day Temp</span> {weatherArr.dayTemp}
-                  º
+                  <span className="fw-bold">Day Temp</span> {temps[1]}º
                 </li>
                 <li>
-                  <span className="fw-bold">NightTemp</span>
-                  {weatherArr.nightTemp}º
+                  <span className="fw-bold">Night Temp</span> {temps[2]}º
                 </li>
               </div>
             </ul>
