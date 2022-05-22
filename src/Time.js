@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Time(props) {
-  let date = new Date(props.timestamp);
+  let date = new Date(props.timestamp * 1000);
   let hours = date.getHours();
   let minutes = date.getMinutes();
   let amOrPm = "AM";
