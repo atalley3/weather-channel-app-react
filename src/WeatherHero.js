@@ -1,4 +1,5 @@
 import React from "react";
+import Time from "./Time";
 import "./WeatherHero.css";
 
 export default function WeatherHero(props) {
@@ -16,7 +17,9 @@ export default function WeatherHero(props) {
   return (
     <section className="WeatherHero">
       <header>
-        <h1>{city} as of 1:00 pm on 5/20/22</h1>
+        <h1>
+          {city} as of <Time timestamp={weatherObj.dt} /> on 5/20/22
+        </h1>
       </header>
       <main className="container ps-1">
         <div className="row">
