@@ -55,6 +55,7 @@ function Weather() {
       uvIndex: response.data.current.uvi,
       moonPhase: response.data.daily[0].moon_phase,
       precipitation: response.data.daily[0].pop,
+      humidity: response.data.current.humidity,
     });
     setIsLoaded(true);
   }
