@@ -2,6 +2,7 @@ import React from "react";
 import IMAGES from "./weather-icons";
 import Time from "./Time";
 import MoonPhase from "./MoonPhase";
+import UvIndex from "./UvIndex";
 
 export default function WeatherDetails(props) {
   let weatherObj = props.info;
@@ -60,7 +61,9 @@ export default function WeatherDetails(props) {
         </div>
         <div className="row"></div>
         <div className="col-sm-6">Pressure: {weatherObj.pressure}</div>
-        <div className="col-sm-6">UV Index: {weatherObj.uvIndex} out of 10</div>
+        <div className="col-sm-6">
+          UV Index: <UvIndex uvIndex={weatherObj.uvIndex} />
+        </div>
         <div className="row">
           <div className="col-sm-6">Visibility: {weatherObj.visibility}</div>
           <div className="col-sm-6">
