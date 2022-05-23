@@ -42,7 +42,7 @@ function Weather() {
       description: response.data.current.weather[0].description,
       dayTemp: response.data.daily[0].temp.day,
       nightTemp: response.data.daily[0].temp.night,
-      icon: response.data.current.weather[0].icon,
+      icon: response.data.current.weather[0].id,
       highTemp: response.data.daily[0].temp.max,
       lowTemp: response.data.daily[0].temp.min,
       pressure: response.data.current.pressure,
