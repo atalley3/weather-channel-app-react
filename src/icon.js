@@ -230,6 +230,10 @@ export default function icon(props) {
       icon: "./weather-icons/overcast.svg",
     },
   };
+  let iconLocation = weatherIds[`${iconId}`].icon;
+  let iconAlt = weatherIds[`${iconId}`].description;
 
-  return <></>;
+  return (
+    <img alt={iconAlt} src={recquire({ iconLocation })} className="Icon" />
+  );
 }
