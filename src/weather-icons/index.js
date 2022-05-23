@@ -4,7 +4,7 @@ const IMAGES = {
     sunset: require("./sunset.svg").default,
   },
   Moon: {
-    new: require("./moon-new.svg").default,
+    newMoon: require("./moon-new.svg").default,
     waxingCrescent: require("./moon-waxing-crescent.svg").default,
     firstQuarter: require("./moon-first-quarter.svg").default,
     waxingGibbous: require("./moon-waxing-gibbous.svg").default,
