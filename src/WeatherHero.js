@@ -1,6 +1,7 @@
 import React from "react";
 import Time from "./Time";
 import Day from "./Day";
+//import Icon from "./Icon";
 import "./WeatherHero.css";
 
 export default function WeatherHero(props) {
@@ -41,8 +42,13 @@ export default function WeatherHero(props) {
               </div>
             </ul>
           </div>
-          <div className="col-md-4 position-relative">
-            <div className="icon">icon</div>
+          <div className="col-md-4 postion-relative">
+            <div className="icon">
+              <img
+                src={require("./weather-icons/thunderstorms.svg").default}
+                alt="thunderstorm"
+              />
+            </div>
           </div>
         </div>
       </main>

@@ -1,6 +1,6 @@
-import react, { useState } from "react";
+import { useState } from "react";
 
-export default function icon(props) {
+export default function Icon(props) {
   const [timeOfDay, setTimeOfDay] = useState("day");
   let date = new Date(props.info.dt * 1000);
   let hours = date.getHours();
@@ -11,229 +11,472 @@ export default function icon(props) {
   let weatherIds = {
     200: {
       description: "thunderstorm with light rain",
-      icon: "./weather-icons/thunderstorms.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms.svg").default}
+          alt="thunderstorm with light rain"
+        />
+      ),
     },
     201: {
       description: "thunderstorm with rain",
-      icon: "./weather-icons/thunderstorms-rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms-rain.svg").default}
+          alt="thunderstorm with rain"
+        />
+      ),
     },
     202: {
       description: "thunderstorm with heavy rain",
-      icon: "./weather-icons/thunderstorms-rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms-rain.svg").default}
+          alt="thunderstorm with heavy rain"
+        />
+      ),
     },
     210: {
       description: "light thunderstorm",
-      icon: "./weather-icons/thunderstorms.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms.svg").default}
+          alt="light thunderstorm"
+        />
+      ),
     },
     211: {
       description: "thunderstorm",
-      icon: "./weather-icons/thunderstorms.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms.svg").default}
+          alt="thunderstorm"
+        />
+      ),
     },
     212: {
       description: "heavy thunderstorm",
-      icon: "./weather-icons/thunderstorms-rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms-rain.svg").default}
+          alt="heavy thunderstorm"
+        />
+      ),
     },
     221: {
       description: "ragged thunderstorm",
-      icon: "./weather-icons/thunderstorms-rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms-rain.svg").default}
+          alt="ragged thunderstorm"
+        />
+      ),
     },
     230: {
       description: "thunderstorm with light drizzle",
-      icon: "./weather-icons/thunderstorms.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms.svg").default}
+          alt="thunderstomr with light drizzle"
+        />
+      ),
     },
     231: {
       description: "thunderstorm with drizzle",
-      icon: "./weather-icons/thunderstorms-rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms-rain.svg").default}
+          alt="thunderstorm with drizzle"
+        />
+      ),
     },
     232: {
       description: "thunderstorm with heavy drizzle",
-      icon: "./weather-icons/thunderstorms-rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/thunderstorms-rain.svg").default}
+          alt="thunderstorm with heavy drizzle"
+        />
+      ),
     },
     300: {
       description: "light intesity drizzle",
-      icon: "./weather-icons/drizzle.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="light intensity drizzle"
+        />
+      ),
     },
     301: {
       description: "drizzle",
-      icon: "./weather-icons/drizzle.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="drizzle"
+        />
+      ),
     },
     302: {
       description: "heavy intenisty drizzle",
-      icon: "./weather-icons/drizzle.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="heavy intensity drizzle"
+        />
+      ),
     },
     310: {
       description: "light intensity drizzle rain",
-      icon: "./weather-icons/drizzle.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="light intensity drizzle rain"
+        />
+      ),
     },
     311: {
       description: "drizzle rain",
-      icon: "./weather-icons/drizzle.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="drizzle rain"
+        />
+      ),
     },
     312: {
       description: "heavy intensity drizzle rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="havey intensity drizzle rain"
+        />
+      ),
     },
     313: {
       description: "shower rain and drizzle",
-      icon: "./weather-icons/drizzle.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="shower rain and drizzle"
+        />
+      ),
     },
     314: {
       description: "heavy shower rain and drizzle",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="heavy shower rain and drizzle"
+        />
+      ),
     },
     321: {
       description: "shower drizzle",
-      icon: "./weather-icons/drizzle.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="shower drizzle"
+        />
+      ),
     },
     500: {
       description: "light rain",
-      icon: "./weather-icons/drizzle.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/drizzle.svg").default}
+          alt="light rain"
+        />
+      ),
     },
     501: {
       description: "moderate rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/rain.svg").default}
+          alt="moderate rain"
+        />
+      ),
     },
     502: {
       description: " heavy instenstiy rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/rain.svg").default}
+          alt="heavy intensity rain"
+        />
+      ),
     },
     503: {
       description: "very heavy rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/rain.svg").default}
+          alt="very heavy rain"
+        />
+      ),
     },
     504: {
       description: "extreme rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/rain.svg").default}
+          alt="extreme rain"
+        />
+      ),
     },
     511: {
       description: "freezing rain",
-      icon: "./weather-icons/sleet.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/sleet.svg").default}
+          alt="freezing rain"
+        />
+      ),
     },
     520: {
       description: "light intensity shower rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/rain.svg").default}
+          alt="light intensity shower rain"
+        />
+      ),
     },
     521: {
       description: "shower rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/rain.svg").default}
+          alt="shower rain"
+        />
+      ),
     },
     522: {
       description: "heavy intensity shower rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/rain.svg").default}
+          alt="heavy intensity shower rain"
+        />
+      ),
     },
     531: {
       description: "ragged shower rain",
-      icon: "./weather-icons/rain.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/rain.svg").default}
+          alt="ragged shower rain"
+        />
+      ),
     },
     600: {
       description: "light snow",
-      icon: "./weather-icons/snow.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/snow.svg").default}
+          alt="light snow"
+        />
+      ),
     },
     601: {
       description: "snow",
-      icon: "./weather-icons/snow.svg",
+      icon: <img src={require("./weather-icons/snow.svg")} alt="snow" />,
     },
     602: {
       description: "heavy snow",
-      icon: "./weather-icons/snowflake.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/snowflake.svg").default}
+          alt="heavy snow"
+        />
+      ),
     },
     611: {
       description: "sleet",
-      icon: "./weather-icons/sleet.svg",
+      icon: (
+        <img src={require("./weather-icons/sleet.svg").default} alt="sleet" />
+      ),
     },
     612: {
       description: "light shower sleet",
-      icon: "./weather-icons/sleet.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/sleet.svg").default}
+          alt="slight shower sleet"
+        />
+      ),
     },
     613: {
       description: "shower sleet",
-      icon: "./weather-icons/sleet.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/sleet.svg").default}
+          alt="shower sleet"
+        />
+      ),
     },
     615: {
       description: "light rain and snow",
-      icon: "./weather-icons/sleet.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/sleet.svg").default}
+          alt="light rain and snow"
+        />
+      ),
     },
     616: {
       description: "rain and snow",
-      icon: "./weather-icons/sleet.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/sleet.svg").default}
+          alt="rain and snow"
+        />
+      ),
     },
     620: {
       description: "light shower snow",
-      icon: "./weather-icons/snow.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/snow.svg").default}
+          alt="light shower snow"
+        />
+      ),
     },
     621: {
       description: "shower snow",
-      icon: "./weather-icons/snowflake.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/snowflake.svg").default}
+          alt="shower snow"
+        />
+      ),
     },
     622: {
       description: "Heavy shower snow",
-      icon: "./weather-icons/snowflake.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/snowflake.svg").default}
+          alt="heavy shower snow"
+        />
+      ),
     },
     701: {
       description: "mist",
-      icon: "./weather-icons/mist.svg",
+      icon: (
+        <img src={require("./weather-icons/mist.svg").default} alt="mist" />
+      ),
     },
     711: {
       description: "smoke",
-      icon: "./weather-icons/smoke.svg",
+      icon: (
+        <img src={require("./weather-icons/smoke.svg").default} alt="smoke" />
+      ),
     },
     721: {
       description: "haze",
-      icon: "./weather-icons/haze.svg",
+      icon: (
+        <img src={require("./weather-icons/haze.svg").default} alt="haze" />
+      ),
     },
     731: {
       description: "Sand/dust whirls",
-      icon: "./weather-icons/dust-wind.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/dust-wind.svg").default}
+          alt="sand/dust whirls"
+        />
+      ),
     },
     741: {
       description: "fog",
-      icon: "./weather-icons/fog.svg",
+      icon: <img src={require("./weather-icons/fog.svg").default} alt="fog" />,
     },
     751: {
       description: "sand",
-      icon: "./weather-icons/dust-wind.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/dust-wind.svg").default}
+          alt="sand"
+        />
+      ),
     },
     761: {
       description: "dust",
-      icon: "./weather-icons/dust.svg",
+      icon: (
+        <img src={require("./weather-icons/dust.svg").default} alt="dust" />
+      ),
     },
     762: {
       description: "volanic ash",
-      icon: "./weather-icons/dust-wind.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/dust-wind.svg").default}
+          alt="volanic ash"
+        />
+      ),
     },
     771: {
       description: "squalls",
-      icon: "./weather-icon/wind.svg",
+      icon: (
+        <img src={require("./weather-icons/wind.svg").default} alt="Squalls" />
+      ),
     },
     781: {
       description: "tornado",
-      icon: "./weather-icons/tornado.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/tornado.svg").default}
+          alt="tornado"
+        />
+      ),
     },
     800: {
       description: "clear sky",
-      icon: `./weather-icons/clear-${timeOfDay}.svg`,
+      icon: (
+        <img
+          src={require(`./weather-icons/clear-${timeOfDay}.svg`).default}
+          alt="clear sky"
+        />
+      ),
     },
     801: {
       description: "few clouds",
-      icon: "./weather-icons/cloudy.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/cloudy.svg").default}
+          alt="few clouds"
+        />
+      ),
     },
     802: {
       description: "scattered clouds",
-      icon: `./weather-icons/overcast-${timeOfDay}.svg`,
+      icon: (
+        <img
+          src={require(`./weather-icons/overcast-${timeOfDay}.svg`).default}
+          alt="scattered clouds"
+        />
+      ),
     },
     803: {
       description: "broken clouds",
-      icon: `./weather-icons/overcast-${timeOfDay}.svg`,
+      icon: (
+        <img
+          src={require(`./weather-icons/overcast-${timeOfDay}.svg`).default}
+          alt="broken clouds"
+        />
+      ),
     },
     804: {
       description: "overcast clouds",
-      icon: "./weather-icons/overcast.svg",
+      icon: (
+        <img
+          src={require("./weather-icons/overcast.svg").default}
+          alt="overcast clouds"
+        />
+      ),
     },
   };
-  let iconLocation = weatherIds[`${iconId}`].icon;
-  let iconAlt = weatherIds[`${iconId}`].description;
 
-  return (
-    <img alt={iconAlt} src={recquire({ iconLocation })} className="Icon" />
-  );
+  return <>{weatherIds[{ iconId }].icon}</>;
 }
