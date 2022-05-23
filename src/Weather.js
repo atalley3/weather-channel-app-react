@@ -128,7 +128,11 @@ function Weather() {
             location={location.cityName}
           />
           <TodaysForecast unit={unit} />
-          <WeatherDetails info={currentWeather} unit={unit} />
+          <WeatherDetails
+            info={currentWeather}
+            unit={unit}
+            location={location.cityName}
+          />
         </main>
       </div>
     );

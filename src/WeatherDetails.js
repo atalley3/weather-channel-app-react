@@ -25,7 +25,7 @@ export default function WeatherDetails(props) {
   return (
     <section className="WeatherDetails">
       <header>
-        <h2>Today's Details ...</h2>
+        <h2>Weather Today in {props.location}</h2>
       </header>
       <div className="container">
         <div className="row">
