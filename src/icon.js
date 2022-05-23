@@ -8,7 +8,7 @@ export default function icon(props) {
     setTimeOfDay("night");
   }
   let iconId = props.info.icon;
-  const weatherIds = {
+  let weatherIds = {
     200: {
       description: "thunderstorm with light rain",
       icon: "./weather-icons/thunderstorms.svg",
