@@ -6,7 +6,14 @@ import MoonPhase from "./MoonPhase";
 export default function WeatherDetails(props) {
   let weatherObj = props.info;
   let unit = props.unit;
-  let temps = [weatherObj.feelsLike, weatherObj.highTemp, weatherObj.lowTemp];
+
+  //displays temps in their appropriate units
+  let temps = [
+    weatherObj.feelsLike,
+    weatherObj.highTemp,
+    weatherObj.lowTemp,
+    weatherObj.dewPoint,
+  ];
   if (unit === "metric") {
     temps = temps.map((temp) => Math.round((temp - 32) * (5 / 9)));
   }
@@ -49,9 +56,7 @@ export default function WeatherDetails(props) {
           <div className="col-sm-6">
             Humidity: {Math.round(weatherObj.humidity)}%
           </div>
-          <div className="col-sm-6">
-            Dew Point: {Math.round(weatherObj.dewPoint)}
-          </div>
+          <div className="col-sm-6">Dew Point: {temps[3]}º</div>
         </div>
         <div className="row"></div>
         <div className="col-sm-6">Pressure: {weatherObj.pressure}</div>
