@@ -62,7 +62,7 @@ export default function WeatherDetails(props) {
           <div className="col-sm-6">Dew Point: {temps[3]}º</div>
         </div>
         <div className="row"></div>
-        <div className="col-sm-6">Pressure: {weatherObj.pressure}</div>
+        <div className="col-sm-6">Pressure: {weatherObj.pressure} hPa</div>
         <div className="col-sm-6">
           UV Index: <UvIndex uvIndex={weatherObj.uvIndex} />
         </div>
