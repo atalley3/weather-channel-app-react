@@ -10,17 +10,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 6px;
+  background-color: white;
 }
 .WeatherDetails img {
   height: 40px;
   width: auto;
 }
 .WeatherDetails header {
-  background-color: white;
-  text-align: start;
+  background-color: white !important;
+  text-align: start !important;
 }
 .WeatherDetails .container {
-  /*margin: 10px !important;*/
   padding: 10px !important;
 }
 .WeatherDetails main {
