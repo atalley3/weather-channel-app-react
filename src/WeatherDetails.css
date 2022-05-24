@@ -1,0 +1,35 @@
+.WeatherDetails {
+  border: 1px black solid;
+  text-align: start;
+  padding: 5px;
+  font-size: 14px;
+  width: 550px;
+  height: auto;
+  position: absolute;
+  top: 2000%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+}
+.WeatherDetails img {
+  height: 40px;
+  width: auto;
+}
+.WeatherDetails header {
+  background-color: white;
+  text-align: start;
+}
+.WeatherDetails .container {
+  /*margin: 10px !important;*/
+  padding: 10px !important;
+}
+.WeatherDetails main {
+  font-weight: 700;
+}
+.WeatherDetails span {
+  font-weight: 400;
+}
+.WeatherDetails .feelsLike {
+  font-size: 40px;
+  font-weight: 700;
+}
