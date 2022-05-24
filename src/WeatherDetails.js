@@ -4,6 +4,7 @@ import Time from "./Time";
 import MoonPhase from "./MoonPhase";
 import UvIndex from "./UvIndex";
 import Visibility from "./visibility";
+import Wind from "./Wind";
 
 export default function WeatherDetails(props) {
   let weatherObj = props.info;
@@ -51,7 +52,7 @@ export default function WeatherDetails(props) {
             High/Low {temps[1]}/{temps[2]}
           </div>
           <div className="col-sm-6">
-            Wind: {Math.round(weatherObj.wind)}make into component
+            Wind: <Wind info={weatherObj} units={unit} />
           </div>
         </div>
         <div className="row">
