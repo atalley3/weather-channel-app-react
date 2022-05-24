@@ -3,6 +3,7 @@ import IMAGES from "./weather-icons";
 import Time from "./Time";
 import MoonPhase from "./MoonPhase";
 import UvIndex from "./UvIndex";
+import Visibility from "./visibility";
 
 export default function WeatherDetails(props) {
   let weatherObj = props.info;
@@ -65,7 +66,10 @@ export default function WeatherDetails(props) {
           UV Index: <UvIndex uvIndex={weatherObj.uvIndex} />
         </div>
         <div className="row">
-          <div className="col-sm-6">Visibility: {weatherObj.visibility}</div>
+          <div className="col-sm-6">
+            Visibility:{" "}
+            <Visibility visibility={weatherObj.visibility} units={unit} />
+          </div>
           <div className="col-sm-6">
             Moon Phase: <MoonPhase moonPhase={weatherObj.moonPhase} />
           </div>
