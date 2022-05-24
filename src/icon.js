@@ -478,5 +478,5 @@ export default function Icon(props) {
     },
   };
 
-  return <>{weatherIds[{ iconId }].icon}</>;
+  return <>{weatherIds[iconId].icon}</>;
 }
