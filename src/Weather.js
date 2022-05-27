@@ -10,7 +10,7 @@ function Weather() {
   const [location, setLocation] = useState({});
   const [unit, setUnit] = useState("imperial");
   const [currentWeather, setCurrentWeather] = useState({});
-  const [isloaded, setIsLoaded] = useState(false);
+  let isLoaded = false;
   const apiKey = `bcdada43905d3c2d7aa9f45a7ce30f8b`;
   let geoURl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
   let oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&exclude={part}&appid=${apiKey}&units=${unit}`;
@@ -57,7 +57,7 @@ function Weather() {
       precipitation: response.data.daily[0].pop,
       humidity: response.data.current.humidity,
     });
-    setIsLoaded(true);
+    isLoaded = true;
   }
   function setImperial(event) {
     event.preventDefault();
@@ -85,7 +85,7 @@ function Weather() {
     setCity(event.target.value);
   }
 
-  if (isloaded) {
+  if (isLoaded) {
     return (
       <div className="Weather">
         <header>
@@ -137,7 +137,7 @@ function Weather() {
       </div>
     );
   }
-  if (!isloaded) {
+  if (!isLoaded) {
     axios.get(geoURl).then(handleLocationSearch);
     return <div className="Weather">Loading...</div>;
   }
