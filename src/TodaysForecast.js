@@ -1,9 +1,34 @@
 import React from "react";
+import QuarterOfToday from "./QuarterOfToday";
 
-export default function TodaysForecast() {
+export default function TodaysForecast(props) {
   return (
     <section className="TodaysForecast">
-      <h1>Hello from Today's Forecast</h1>
+      <header>
+        <h1>Today in {props.location}</h1>
+      </header>
+      <main>
+        <div className="row">
+          <div className="col-sm-3 fw-bold">Morning</div>
+          <div className="col-sm-3 fw-bold">Afternoon</div>
+          <div className="col-sm-3 fw-bold">Evening</div>
+          <div className="col-sm-3 fw-bold">Night</div>
+        </div>
+        <div className="row">
+          <div className="col-sm-3 border-end">
+            <QuarterOfToday />
+          </div>
+          <div className="col-sm-3 border-end">
+            <QuarterOfToday />
+          </div>
+          <div className="col-sm-3 border-end">
+            <QuarterOfToday />
+          </div>
+          <div className="col-sm-3">
+            <QuarterOfToday />
+          </div>
+        </div>
+      </main>
     </section>
   );
 }

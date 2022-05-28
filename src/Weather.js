@@ -10,9 +10,9 @@ function Weather() {
   const [location, setLocation] = useState({});
   const [unit, setUnit] = useState("imperial");
   const [currentWeather, setCurrentWeather] = useState({});
-  const [forecast, setForecast] = useState([]);
-  let isLoaded = false;
-  const apiKey = `bcdada43905d3c2d7aa9f45a7ce30f8b`;
+  const [forecast, setForecast] = useState();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const apiKey = `9e59cacf9e1dfe99b0c121a8aafc0c87`;
   let geoURl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
   let oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&exclude={part}&appid=${apiKey}&units=${unit}`;
 
@@ -58,7 +58,8 @@ function Weather() {
       precipitation: response.data.daily[0].pop,
       humidity: response.data.current.humidity,
     });
-    isLoaded = true;
+    setForecast(response.data.daily);
+    setIsLoaded(true);
   }
   function setImperial(event) {
     event.preventDefault();

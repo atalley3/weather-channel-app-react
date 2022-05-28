@@ -26,5 +26,11 @@ const IMAGES = {
     'require("./uv-index-10.svg").default',
     'require("./uv-index-11.svg").default',
   ],
+  Icon: {
+    thunderstorm: require("./thunderstorms.svg").default,
+  },
+  Other: {
+    raindrop: require("./raindrop.svg").default,
+  },
 };
 export default IMAGES;
