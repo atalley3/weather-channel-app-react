@@ -131,7 +131,7 @@ function Weather() {
           />
           <TodaysForecast
             unit={unit}
-            info={forecast}
+            info={forecast[0]}
             location={location.cityName}
           />
           <WeatherDetails
