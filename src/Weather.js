@@ -10,6 +10,7 @@ function Weather() {
   const [location, setLocation] = useState({});
   const [unit, setUnit] = useState("imperial");
   const [currentWeather, setCurrentWeather] = useState({});
+  const [forecast, setForecast] = useState([]);
   let isLoaded = false;
   const apiKey = `bcdada43905d3c2d7aa9f45a7ce30f8b`;
   let geoURl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
@@ -127,7 +128,11 @@ function Weather() {
             unit={unit}
             location={location.cityName}
           />
-          <TodaysForecast unit={unit} />
+          <TodaysForecast
+            unit={unit}
+            info={forecast}
+            location={location.cityName}
+          />
           <WeatherDetails
             info={currentWeather}
             unit={unit}
