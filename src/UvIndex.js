@@ -1,4 +1,4 @@
-//import IMAGES from "./WeatherDetails";
+import IMAGES from "./weather-icons";
 
 export default function UvIndex(props) {
   let uvIndex = props.uvIndex;
@@ -25,7 +25,12 @@ export default function UvIndex(props) {
   }
   let alt = `${uvIndex} out of 11, ${dangerLevel}`;
 
-  //let arrPosition = uvIndex - 1;
+  let arrPosition = uvIndex - 1;
+  let imgSrc = IMAGES.Index[arrPosition];
 
-  return <span className="UvIndex">{alt}</span>;
+  return (
+    <span className="UvIndex">
+      <img src={imgSrc} alt={alt} />
+    </span>
+  );
 }
