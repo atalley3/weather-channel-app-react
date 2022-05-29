@@ -1,5 +1,4 @@
-import React from "react";
-import QuarterOfToday from "./QuarterOfToday";
+import "./TodaysForecast.css";
 
 export default function TodaysForecast(props) {
   let units = props.unit;
@@ -27,16 +26,16 @@ export default function TodaysForecast(props) {
         </div>
         <div className="row">
           <div className="col-sm-3 border-end">
-            <QuarterOfToday />
+            <span className="todaysTemps">{dailyTemps[0]}º</span>
           </div>
           <div className="col-sm-3 border-end">
-            <QuarterOfToday />
+            <span className="todaysTemps">{dailyTemps[1]}º</span>
           </div>
           <div className="col-sm-3 border-end">
-            <QuarterOfToday />
+            <span className="todaysTemps">{dailyTemps[2]}º</span>
           </div>
           <div className="col-sm-3">
-            <QuarterOfToday />
+            <span className="todaysTemps">{dailyTemps[3]}º</span>
           </div>
         </div>
       </main>

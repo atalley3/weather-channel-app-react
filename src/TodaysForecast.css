@@ -1,0 +1,19 @@
+.TodaysForecast section {
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  max-width: 650px;
+  border-radius: 6px;
+  background-color: white;
+}
+.TodaysForecast header {
+  text-align: start;
+  padding: 20px;
+  background-color: white;
+}
+.TodaysForecast h1 {
+  font-size: 28px;
+}
+.TodaysForecast .todaysTemps {
+  font-size: 40px;
+}
