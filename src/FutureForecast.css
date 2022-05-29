@@ -1,0 +1,14 @@
+.FutureForecast section {
+  font-size: 18px;
+  text-align: center;
+  padding: 20px;
+  max-width: 650px;
+  border-radius: 6px;
+}
+.FutureForecast header {
+  text-align: start;
+  padding: 20px;
+}
+.FutureForecast h1 {
+  font-size: 28px;
+}

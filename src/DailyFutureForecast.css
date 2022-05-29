@@ -1,0 +1,22 @@
+.DailyFutureForecast {
+  text-align: center;
+}
+.DailyFutureForecast img {
+  max-width: 50px;
+  margin: 0 -10 0 0;
+  padding: 0;
+}
+.DailyFutureForecast img.icon {
+  max-width: 75px;
+  margin: 5px;
+}
+.DailyFutureForecast .highTemp {
+  font-size: 18px;
+}
+.DailyFutureForecast .lowTemp,
+.DailyFutureForecast .precipitation {
+  font-size: 12px;
+}
+.DailyFutureForecast .day {
+  font-size: 16px;
+}
