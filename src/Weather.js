@@ -55,7 +55,7 @@ function Weather() {
       dewPoint: response.data.current.dew_point,
       uvIndex: response.data.current.uvi,
       moonPhase: response.data.daily[0].moon_phase,
-      precipitation: response.data.daily[0].pop,
+      precipitation: response.data.daily[0].pop * 100,
       humidity: response.data.current.humidity,
     });
     setForecast(response.data.daily);
