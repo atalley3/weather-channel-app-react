@@ -5,6 +5,9 @@ export default function UvIndex(props) {
   uvIndex = Math.ceil(uvIndex);
 
   let dangerLevel;
+  if (uvIndex === 0) {
+    uvIndex = 1;
+  }
   if (uvIndex <= 2) {
     dangerLevel = "Low";
   }
