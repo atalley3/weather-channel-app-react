@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import WeatherHero from "./WeatherHero";
 import TodaysForecast from "./TodaysForecast";
 import WeatherDetails from "./WeatherDetails";
+import FutureForecast from "./FutureForecast";
 import "./Weather.css";
 
 function Weather() {
@@ -137,6 +138,11 @@ function Weather() {
           <WeatherDetails
             info={currentWeather}
             unit={unit}
+            location={location.cityName}
+          />
+          <FutureForecast
+            forecast={forecast}
+            units={unit}
             location={location.cityName}
           />
         </main>
