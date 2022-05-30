@@ -24,13 +24,14 @@ export default function UvIndex(props) {
     dangerLevel = "Extreme";
   }
   let alt = `${uvIndex} out of 11, ${dangerLevel}`;
+  let msg = `${uvIndex} out of 11`;
 
   let arrPosition = uvIndex - 1;
   let imgSrc = IMAGES.Index[arrPosition];
 
   return (
     <span className="UvIndex">
-      <img src={imgSrc} alt={alt} />
+      <img src={imgSrc} alt={alt} /> {msg}
     </span>
   );
 }
