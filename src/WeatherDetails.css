@@ -1,16 +1,14 @@
 .WeatherDetails {
-  border: 1px black solid;
-  text-align: start;
-  padding: 5px;
-  font-size: 14px;
-  width: 550px;
-  height: auto;
-  position: absolute;
-  top: 2000%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 550px;
+  display: block;
+  margin: 30px auto;
+  font-size: 16px;
+  padding: 20px;
   border-radius: 6px;
   background-color: white;
+  box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);
+  color: #005896;
+  text-align: start;
 }
 .WeatherDetails img {
   height: 40px;
@@ -32,4 +30,16 @@
 .WeatherDetails .feelsLike {
   font-size: 40px;
   font-weight: 700;
+}
+
+@media (max-width: 576px) {
+  .WeatherDetails .sunrise,
+  .WeatherDetails .sunset {
+    height: 30px;
+  }
+  .WeatherDetails .sun {
+    padding: 0px;
+    display: flex;
+    justify-content: space-around;
+  }
 }

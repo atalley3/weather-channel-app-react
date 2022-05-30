@@ -1,13 +1,19 @@
 .DailyFutureForecast {
   text-align: center;
+  margin: 0 auto;
+  padding: 20px;
 }
-.DailyFutureForecast img {
-  max-width: 50px;
-  margin: 0 -10 0 0;
+.DailyFutureForecast il {
+  padding: 0;
+  margin: 0;
+}
+.DailyFutureForecast img.precipitation {
+  max-width: 20px;
+  margin: 0;
   padding: 0;
 }
-.DailyFutureForecast img.icon {
-  max-width: 75px;
+.DailyFutureForecast img {
+  max-width: 65px;
   margin: 5px;
 }
 .DailyFutureForecast .highTemp {
@@ -16,7 +22,9 @@
 .DailyFutureForecast .lowTemp,
 .DailyFutureForecast .precipitation {
   font-size: 12px;
+  white-space: nowrap;
 }
 .DailyFutureForecast .day {
   font-size: 16px;
+  white-space: nowrap;
 }

@@ -26,7 +26,7 @@ export default function WeatherHero(props) {
       </header>
       <main className="container ps-1">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-8">
             <ul>
               <li className="currentTemp">
                 {temps[0]}º {unit === "imperial" ? "F" : "C"}
@@ -42,7 +42,7 @@ export default function WeatherHero(props) {
               </div>
             </ul>
           </div>
-          <div className="col-md-4 postion-relative">
+          <div className="col-4 postion-relative">
             <div className="icon">
               <Icon info={weatherObj} />
             </div>

@@ -9,13 +9,13 @@ export default function FutureForecast(props) {
   let forecastMap = forecast.map((dailyForecast, index) => {
     if (index < 8) {
       return (
-        <div className="col border-end" key={index}>
+        <div className="border-end" key={index}>
           <DailyFutureForecast forecast={dailyForecast} units={units} />
         </div>
       );
     } else {
       return (
-        <div className="col" key={index}>
+        <div key={index}>
           <DailyFutureForecast forecast={dailyForecast} units={units} />
         </div>
       );
@@ -24,11 +24,11 @@ export default function FutureForecast(props) {
 
   return (
     <section className="FutureForecast">
-      <header>
+      <header className="header">
         <h1>Daily Forecast for {location}</h1>
       </header>
       <main>
-        <div className="row">{forecastMap}</div>
+        <div className="scroll">{forecastMap}</div>
       </main>
     </section>
   );

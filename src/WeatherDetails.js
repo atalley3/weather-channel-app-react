@@ -37,7 +37,7 @@ export default function WeatherDetails(props) {
             <div className="col-sm-6 border-bottom align-top text-center">
               Feels Like:{"    "} <span className="feelsLike">{temps[0]}º</span>
             </div>
-            <div className="col-sm-6 border-bottom text-center">
+            <div className="col-sm-6 border-bottom text-center sun">
               <div>
                 <img src={IMAGES.Sun.sunrise} alt="sunrise" />
                 <Time timestamp={weatherObj.sunriseDT} />
@@ -52,7 +52,7 @@ export default function WeatherDetails(props) {
             <div className="col-sm-6 border-bottom">
               High/Low:{" "}
               <span>
-                {temps[1]}º /{temps[2]}º
+                {temps[1]}º / {temps[2]}º
               </span>
             </div>
             <div className="col-sm-6 border-bottom">
@@ -76,11 +76,11 @@ export default function WeatherDetails(props) {
             </div>
           </div>
           <div className="row">
-            <div className="col-sm-6">
+            <div className="col-sm-6 border-bottom">
               Visibility:{" "}
               <Visibility visibility={weatherObj.visibility} units={unit} />
             </div>
-            <div className="col-sm-6">
+            <div className="col-sm-6 border-bottom">
               Moon Phase: <MoonPhase moonPhase={weatherObj.moonPhase} />
             </div>
           </div>

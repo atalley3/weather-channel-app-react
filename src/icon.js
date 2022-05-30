@@ -1,3 +1,4 @@
+import IMAGES from "./weather-icons";
 export default function Icon(props) {
   let timeOfDay = "Day";
   let date = new Date(props.info.dt * 1000);
