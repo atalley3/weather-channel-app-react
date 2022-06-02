@@ -1,22 +1,20 @@
-//import axios from "axios";
+import axios from "axios";
 import React, { useState } from "react";
 import WeatherHero from "./WeatherHero";
 import TodaysForecast from "./TodaysForecast";
 import WeatherDetails from "./WeatherDetails";
 import FutureForecast from "./FutureForecast";
 import "./Weather.css";
-import TESTARR from "./testarr";
+//import TESTARR from "./testarr";
 
 function Weather() {
-  //const [city, setCity] = useState("Asheville");
-  const [location, setLocation] = useState({});
+  const [city, setCity] = useState("Asheville");
+  const [local, setLocal] = useState({});
   const [unit, setUnit] = useState("imperial");
   const [currentWeather, setCurrentWeather] = useState({});
-  //const [forecast, setForecast] = useState([]);
+  const [forecast, setForecast] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
-  //const apiKey = `9e59cacf9e1dfe99b0c121a8aafc0c87`;
-  //let geoURl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
-  //let oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&exclude={part}&appid=${apiKey}&units=${unit}`;
+  const apiKey = `9e59cacf9e1dfe99b0c121a8aafc0c87`;
 
   function setImperial(event) {
     event.preventDefault();
@@ -26,14 +24,85 @@ function Weather() {
     event.preventDefault();
     setUnit("metric");
   }
+  function handleResponse(response) {
+    setCurrentWeather({
+      dt: response.data.current.dt,
+      temp: response.data.current.temp,
+      description: response.data.current.weather[0].description,
+      dayTemp: response.data.daily[0].temp.day,
+      nightTemp: response.data.daily[0].temp.night,
+      icon: response.data.current.weather[0].id,
+      highTemp: response.data.daily[0].temp.max,
+      lowTemp: response.data.daily[0].temp.min,
+      pressure: response.data.current.pressure,
+      visibility: response.data.current.visibility,
+      feelsLike: response.data.current.feels_like,
+      sunriseDT: response.data.current.sunrise,
+      sunsetDT: response.data.current.sunset,
+      wind: response.data.current.wind_speed,
+      dewPoint: response.data.current.dew_point,
+      uvIndex: response.data.current.uvi,
+      moonPhase: response.data.daily[0].moon_phase,
+      humidity: response.data.current.humidity,
+    });
+    setForecast(response.data.daily);
+  }
+  /*function loadReject() {
+    alert("loading has failed");
+  }*/
+  function loadConfirm() {
+    setIsLoaded("true");
+  }
+
+  function oneCallSearch() {
+    let oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${local.lat}&lon=${local.lon}&appid=${apiKey}&units=imperial`;
+    axios
+      .get(oneCallUrl)
+      .then(handleResponse)
+      .catch(() => alert(`one call has failed`))
+      .finally(loadConfirm);
+  }
+  function defineLocation(response) {
+    setLocal({
+      lon: response.data[0].lon,
+      lat: response.data[0].lat,
+      cityName: response.data[0].name,
+    });
+  }
+  function geoSearch() {
+    let geoURl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+    axios
+      .get(geoURl)
+      .then(defineLocation)
+      .catch(() => alert(`geoSearch has failed`))
+      .finally(oneCallSearch);
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
+    geoSearch();
   }
-  /*function updateCity(event) {
+  function reverseGeoSearch() {
+    let reverseGeoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${local.lat}&lon=${local.loc}&appid=${apiKey}`;
+    axios
+      .get(reverseGeoUrl)
+      .then((response) => {
+        setLocal({ ...local, cityName: response.data[1].name });
+      })
+      .catch(() => alert(`Can not find currentlocation`))
+      .finally(oneCallSearch);
+  }
+  function defineCurrentLocation(position) {
+    setLocal({ lon: position.coords.lon, lat: position.coords.lat });
+    reverseGeoSearch();
+  }
+  function getCurrentLocation() {
+    navigator.geolocation.getCurrentPosition(defineCurrentLocation);
+  }
+  function updateCity(event) {
     setCity(event.target.value);
-  }*/
-  function defineData() {
+  }
+  /*function defineData() {
     setLocation({
       lon: 0,
       lat: 0,
@@ -60,9 +129,9 @@ function Weather() {
       moonPhase: 0.75,
       humidity: 30,
     });
-    //setForecast([TESTARR]);
+    setForecast(TESTARR);
     setIsLoaded(true);
-  }
+  }*/
 
   if (isLoaded) {
     return (
@@ -76,6 +145,7 @@ function Weather() {
                     type="Search"
                     placeholder="Enter a city name..."
                     autoFocus={false}
+                    onChange={updateCity}
                   />
                   <button type="submit">
                     <i className="fa-solid fa-magnifying-glass"></i>
@@ -84,7 +154,12 @@ function Weather() {
               </div>
 
               <div className="col-md-3">
-                <button className="btn location-btn">Current Location</button>
+                <button
+                  className="btn location-btn"
+                  onClick={getCurrentLocation}
+                >
+                  Current Location
+                </button>
               </div>
               <div className="col-md-3 units-btn">
                 <button className="btn metric-btn" onClick={setMetric}>
@@ -101,29 +176,29 @@ function Weather() {
           <WeatherHero
             info={currentWeather}
             unit={unit}
-            location={location.cityName}
+            location={local.cityName}
           />
           <TodaysForecast
             unit={unit}
-            info={TESTARR[0]}
-            location={location.cityName}
+            info={forecast[0]}
+            location={local.cityName}
           />
           <WeatherDetails
             info={currentWeather}
             unit={unit}
-            location={location.cityName}
+            location={local.cityName}
           />
           <FutureForecast
-            forecast={TESTARR}
+            forecast={forecast}
             units={unit}
-            location={location.cityName}
+            location={local.cityName}
           />
         </main>
       </div>
     );
   } else {
-    defineData();
-    return <div>loading...</div>;
+    geoSearch();
+    return <div id="loading">loading...</div>;
   }
 }
 
