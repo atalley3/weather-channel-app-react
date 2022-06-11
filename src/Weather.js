@@ -5,6 +5,7 @@ import TodaysForecast from "./TodaysForecast";
 import WeatherDetails from "./WeatherDetails";
 import FutureForecast from "./FutureForecast";
 import "./Weather.css";
+import Loader from "react-js-loader";
 //import TESTARR from "./testarr";
 
 function Weather() {
@@ -199,7 +200,17 @@ function Weather() {
     );
   } else {
     search();
-    return <div id="loading">loading...</div>;
+    return (
+      <div id="loading">
+        <Loader
+          type="bubble-scale"
+          bgColor={"#00598"}
+          title={"bubble-scale"}
+          color={"#ebbb03"}
+          size={100}
+        />
+      </div>
+    );
   }
 }
 
