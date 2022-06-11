@@ -82,6 +82,7 @@ function Weather() {
       let reverseGeoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${local.lat}&lon=${local.loc}&appid=${apiKey}`;
       let response = await axios.get(reverseGeoUrl);
       setLocal({ ...local, cityName: response.data[1].name });
+      await oneCallSearch();
     } catch (err) {
       console.error(err);
       console.log("reverse search error");
