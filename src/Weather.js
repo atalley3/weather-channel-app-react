@@ -24,74 +24,72 @@ function Weather() {
     event.preventDefault();
     setUnit("metric");
   }
-  function handleResponse(response) {
-    setCurrentWeather({
-      dt: response.data.current.dt,
-      temp: response.data.current.temp,
-      description: response.data.current.weather[0].description,
-      dayTemp: response.data.daily[0].temp.day,
-      nightTemp: response.data.daily[0].temp.night,
-      icon: response.data.current.weather[0].id,
-      highTemp: response.data.daily[0].temp.max,
-      lowTemp: response.data.daily[0].temp.min,
-      pressure: response.data.current.pressure,
-      visibility: response.data.current.visibility,
-      feelsLike: response.data.current.feels_like,
-      sunriseDT: response.data.current.sunrise,
-      sunsetDT: response.data.current.sunset,
-      wind: response.data.current.wind_speed,
-      dewPoint: response.data.current.dew_point,
-      uvIndex: response.data.current.uvi,
-      moonPhase: response.data.daily[0].moon_phase,
-      humidity: response.data.current.humidity,
-    });
-    setForecast(response.data.daily);
-  }
-  /*function loadReject() {
-    alert("loading has failed");
-  }*/
-  function loadConfirm() {
-    setIsLoaded("true");
-  }
 
-  function oneCallSearch() {
-    let oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${local.lat}&lon=${local.lon}&appid=${apiKey}&units=imperial`;
-    axios
-      .get(oneCallUrl)
-      .then(handleResponse)
-      .catch(() => alert(`one call has failed`))
-      .finally(loadConfirm);
-  }
-  function defineLocation(response) {
-    setLocal({
-      lon: response.data[0].lon,
-      lat: response.data[0].lat,
-      cityName: response.data[0].name,
-    });
-  }
-  function geoSearch() {
-    let geoURl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
-    axios
-      .get(geoURl)
-      .then(defineLocation)
-      .catch(() => alert(`geoSearch has failed`))
-      .finally(oneCallSearch);
-  }
+  let oneCallSearch = async () => {
+    try {
+      let oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${local.lat}&lon=${local.lon}&appid=${apiKey}&units=imperial`;
+      let response = await axios.get(oneCallUrl);
+      setCurrentWeather({
+        dt: response.data.current.dt,
+        temp: response.data.current.temp,
+        description: response.data.current.weather[0].description,
+        dayTemp: response.data.daily[0].temp.day,
+        nightTemp: response.data.daily[0].temp.night,
+        icon: response.data.current.weather[0].id,
+        highTemp: response.data.daily[0].temp.max,
+        lowTemp: response.data.daily[0].temp.min,
+        pressure: response.data.current.pressure,
+        visibility: response.data.current.visibility,
+        feelsLike: response.data.current.feels_like,
+        sunriseDT: response.data.current.sunrise,
+        sunsetDT: response.data.current.sunset,
+        wind: response.data.current.wind_speed,
+        dewPoint: response.data.current.dew_point,
+        uvIndex: response.data.current.uvi,
+        moonPhase: response.data.daily[0].moon_phase,
+        humidity: response.data.current.humidity,
+      });
+      setForecast(response.data.daily);
+      setIsLoaded("true");
+    } catch (err) {
+      console.error(err);
+      console.log("one call error");
+    }
+  };
+
+  let geoSearch = async () => {
+    try {
+      let geoURl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+      let response = await axios.get(geoURl);
+      setLocal({
+        lon: response.data[0].lon,
+        lat: response.data[0].lat,
+        cityName: response.data[0].name,
+      });
+      response.finally(oneCallSearch);
+    } catch (err) {
+      console.error(err);
+      console.log("location error");
+    }
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
     geoSearch();
   }
-  function reverseGeoSearch() {
-    let reverseGeoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${local.lat}&lon=${local.loc}&appid=${apiKey}`;
-    axios
-      .get(reverseGeoUrl)
-      .then((response) => {
-        setLocal({ ...local, cityName: response.data[1].name });
-      })
-      .catch(() => alert(`Can not find currentlocation`))
-      .finally(oneCallSearch);
-  }
+
+  let reverseGeoSearch = async () => {
+    try {
+      let reverseGeoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${local.lat}&lon=${local.loc}&appid=${apiKey}`;
+      let response = await axios.get(reverseGeoUrl);
+      setLocal({ ...local, cityName: response.data[1].name });
+      response.finally(oneCallSearch);
+    } catch (err) {
+      console.error(err);
+      console.log("reverse search error");
+    }
+  };
+
   function defineCurrentLocation(position) {
     setLocal({ lon: position.coords.lon, lat: position.coords.lat });
     reverseGeoSearch();
