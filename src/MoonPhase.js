@@ -7,7 +7,7 @@ export default function MoonPhase(props) {
     "newMoon",
     "waxingCrescent",
     "firstQuarter",
-    "waxingGibbious",
+    "waxingGibbous",
     "full",
     "waningGibbous",
     "lastQuarter",
