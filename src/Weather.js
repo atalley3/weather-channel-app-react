@@ -66,7 +66,7 @@ function Weather() {
         lat: response.data[0].lat,
         cityName: response.data[0].name,
       });
-      response.finally(oneCallSearch);
+      oneCallSearch();
     } catch (err) {
       console.error(err);
       console.log("location error");
@@ -75,7 +75,7 @@ function Weather() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    geoSearch();
+    search();
   }
 
   let reverseGeoSearch = async () => {
@@ -83,11 +83,14 @@ function Weather() {
       let reverseGeoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${local.lat}&lon=${local.loc}&appid=${apiKey}`;
       let response = await axios.get(reverseGeoUrl);
       setLocal({ ...local, cityName: response.data[1].name });
-      response.finally(oneCallSearch);
     } catch (err) {
       console.error(err);
       console.log("reverse search error");
     }
+  };
+  let search = async () => {
+    await geoSearch();
+    await oneCallSearch();
   };
 
   function defineCurrentLocation(position) {
@@ -195,7 +198,7 @@ function Weather() {
       </div>
     );
   } else {
-    geoSearch();
+    search();
     return <div id="loading">loading...</div>;
   }
 }

@@ -1,3 +1,6 @@
+:root {
+  --search-bar-primary: rgb(19, 128, 196);
+}
 .Weather .searchBar {
   background-color: #005986;
   text-align: center;
@@ -12,7 +15,7 @@
 .Weather form {
   display: flex;
   justify-content: space-evenly;
-  background-color: rgb(5, 157, 251);
+  background-color: var(--search-bar-primary);
   border-radius: 20px;
   color: white;
   height: auto;
@@ -21,19 +24,19 @@
   padding: 6px;
 }
 .Weather input {
-  background-color: rgb(5, 157, 251);
+  background-color: var(--search-bar-primary);
   color: white;
   border: none;
 }
 .Weather form button {
   color: white;
-  background-color: rgb(5, 157, 251);
+  background-color: var(--search-bar-primary);
   border: none;
 }
 .Weather .location-btn {
   border-radius: 20px;
   color: white;
-  background-color: rgb(19, 128, 196);
+  background-color: var(--search-bar-primary);
   margin: 10px;
   white-space: nowrap;
 }
@@ -42,7 +45,7 @@
   white-space: nowrap;
 }
 .Weather .metric-btn {
-  background-color: rgb(19, 128, 196);
+  background-color: var(--search-bar-primary);
   color: white;
   border-radius: 20px 0 0 20px;
   padding-right: 0;
@@ -51,7 +54,8 @@
   border-right: 1px black solid;
 }
 .Weather .imperial-btn {
-  background-color: rgb(19, 128, 196);
+  background-color: var(--search-bar-primary);
+
   color: white;
   border-radius: 0 20px 20px 0;
   padding-left: 0;
