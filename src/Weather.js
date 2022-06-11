@@ -5,8 +5,6 @@ import TodaysForecast from "./TodaysForecast";
 import WeatherDetails from "./WeatherDetails";
 import FutureForecast from "./FutureForecast";
 import "./Weather.css";
-import Loader from "react-js-loader";
-//import TESTARR from "./testarr";
 
 function Weather() {
   const [city, setCity] = useState("Asheville");
@@ -104,36 +102,6 @@ function Weather() {
   function updateCity(event) {
     setCity(event.target.value);
   }
-  /*function defineData() {
-    setLocation({
-      lon: 0,
-      lat: 0,
-      cityName: "Asheville",
-    });
-
-    setCurrentWeather({
-      dt: 1652180400,
-      temp: 86.9,
-      description: "mist",
-      dayTemp: 87.1,
-      nightTemp: 60.4,
-      icon: 800,
-      highTemp: 100.2,
-      lowTemp: 52.7,
-      pressure: 1053,
-      visibility: 90,
-      feelsLike: 90,
-      sunriseDT: 1652161977,
-      sunsetDT: 1652205595,
-      wind: 6.48,
-      dewPoint: 60.1,
-      uvIndex: 0.73,
-      moonPhase: 0.75,
-      humidity: 30,
-    });
-    setForecast(TESTARR);
-    setIsLoaded(true);
-  }*/
 
   if (isLoaded) {
     return (
@@ -200,17 +168,7 @@ function Weather() {
     );
   } else {
     search();
-    return (
-      <div id="loading">
-        <Loader
-          type="bubble-scale"
-          bgColor={"#00598"}
-          title={"bubble-scale"}
-          color={"#ebbb03"}
-          size={100}
-        />
-      </div>
-    );
+    return <div id="loading">loading</div>;
   }
 }
 
