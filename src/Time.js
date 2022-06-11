@@ -25,8 +25,8 @@ export default function Time(props) {
   }
 
   return (
-    <>
+    <span>
       {hours}:{minutes} {amOrPm}
-    </>
+    </span>
   );
 }

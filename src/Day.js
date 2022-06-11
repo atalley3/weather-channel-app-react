@@ -7,8 +7,8 @@ export default function Day(props) {
   let year = d.getFullYear();
 
   return (
-    <>
+    <span>
       {month}/{date}/{year}
-    </>
+    </span>
   );
 }
