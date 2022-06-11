@@ -77,25 +77,18 @@ function Weather() {
     search();
   }
 
-  let reverseGeoSearch = async () => {
-    try {
-      let reverseGeoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${local.lat}&lon=${local.loc}&appid=${apiKey}`;
-      let response = await axios.get(reverseGeoUrl);
-      setLocal({ ...local, cityName: response.data[1].name });
-      await oneCallSearch();
-    } catch (err) {
-      console.error(err);
-      console.log("reverse search error");
-    }
-  };
   let search = async () => {
     await geoSearch();
     await oneCallSearch();
   };
 
   function defineCurrentLocation(position) {
-    setLocal({ lon: position.coords.lon, lat: position.coords.lat });
-    reverseGeoSearch();
+    setLocal({
+      lon: position.coords.lon,
+      lat: position.coords.lat,
+      cityName: "Your Location",
+    });
+    oneCallSearch();
   }
   function getCurrentLocation() {
     navigator.geolocation.getCurrentPosition(defineCurrentLocation);
