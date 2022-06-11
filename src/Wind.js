@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Wind(props) {
   let windSpeed = props.info.wind;
   let units = props.units;

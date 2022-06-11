@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Visibility(props) {
   let units = props.units;
   let visibility = props.visibility;

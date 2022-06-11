@@ -1,3 +1,4 @@
+import React from "react";
 import IMAGES from "./weather-icons";
 import Icon from "./icon";
 import "./DailyFutureForecast.css";

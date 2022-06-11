@@ -6,7 +6,7 @@ function Footer() {
       <a
         href="https://www.github.com/atalley3/weather-channel-app"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         Open source code
       </a>{" "}
@@ -14,7 +14,7 @@ function Footer() {
       <a
         href="https://https://www.linkedin.com/in/ashley-talley-41271950/"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         Ashley Talley
       </a>
